@@ -135,17 +135,17 @@ Modules are the way of organising different domain-specific modules in the proje
     ├── __tests__                    // all the tests for this module goes here
     |   ├── components               // Sub components of this module
     |   |   ├── Post.spec.js
-    |   |   ├── PostList.spec.js
+    |   |   ├── ItemList.spec.js
     |   |   ├── PostItem.spec.js
     |   |   └── PostImage.spec.js
     |   ├── pages
     |   |   ├── PostPage.spec.js
     |   |   └── PostViewPage.spec.js
-    |   ├── PostReducer.spec.js
-    |   └── PostActions.spec.js
+    |   ├── ItemReducer.spec.js
+    |   └── ItemActions.spec.js
     ├── components                   // Sub components of this module
     |   ├── Post.js
-    |   ├── PostList.js
+    |   ├── ItemList.js
     |   ├── PostItem.js
     |   └── PostImage.js
     ├── pages                        // React Router Pages from this module
@@ -155,8 +155,8 @@ Modules are the way of organising different domain-specific modules in the proje
     |   └── PostViewPage
     |       ├── PostViewPage.js
     |       └── PostViewPage.css
-    ├── PostReducer.js
-    └── PostActions.js
+    ├── ItemReducer.js
+    └── ItemActions.js
 ```
 
 ## Misc

@@ -1,7 +1,7 @@
-import Post from './models/post';
+import Item from './models/item';
 
 export default function () {
-  Post.count().exec((err, count) => {
+  Item.count().exec((err, count) => {
     if (count > 0) {
       return;
     }
@@ -34,10 +34,10 @@ export default function () {
       qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
       ipsum quia dolor sit amet.`;
 
-    const post1 = new Post({ name: 'Admin', title: 'Hello MERN', slug: 'hello-mern', cuid: 'cikqgkv4q01ck7453ualdn3hd', content: content1 });
-    const post2 = new Post({ name: 'Admin', title: 'Lorem Ipsum', slug: 'lorem-ipsum', cuid: 'cikqgkv4q01ck7453ualdn3hf', content: content2 });
+    const item1 = new Item({ id: 1001, name: 'Item1', price: 20, img: '1001.png', description: content1 });
+    const item2 = new Item({ id: 1002, name: 'Item2', price: 30, img: '1002.png', description: content2 });
 
-    Post.create([post1, post2], (error) => {
+    Item.create([item1, item2], (error) => {
       if (!error) {
         // console.log('ready to go....');
       }
