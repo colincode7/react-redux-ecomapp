@@ -7,22 +7,21 @@ export const DELETE_ITEM = 'DELETE_ITEM';
 
 // Export Actions
 export function addItem(item) {
-  return {
-    type: ADD_ITEM,
-    item,
-  };
+  // return {
+  //   type: ADD_ITEM_TO_CART,
+  //   cart,
+  // };
 }
 
-export function addItemRequest(item) {
-  return (dispatch) => {
-    return callApi('items', 'item', {
-      item: {
-        name: item.name,
-        price: item.price,
-        description: item.description,
-      },
-    }).then(res => dispatch(addItem(res.item)));
-  };
+export function addItemToCartRequest(cusId, itemId) {
+  // return (dispatch) => {
+  //   return callApi('addtocart', 'post', {
+  //     item: {
+  //       cusId: cusId,
+  //       price: itemId,
+  //     },
+  //   }).then(res => dispatch(addItem(res.item)));
+  // };
 }
 
 export function addItems(items) {

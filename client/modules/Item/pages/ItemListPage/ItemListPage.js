@@ -8,22 +8,21 @@ import ItemList from '../../components/ItemList';
 
 // Import Actions
 import { fetchItems } from '../../ItemActions';
+import { addItemToCartRequest } from '../../../Cart/CartActions';
 // import { toggleAddPost } from '../../../App/AppActions';
 
 // Import Selectors
 // import { getShowAddPost } from '../../../App/AppReducer';
 import { getItems } from '../../ItemReducer';
+import { getCart } from '../../../Cart/CartReducer';
 
 class ItemListPage extends Component {
   componentDidMount() {
     this.props.dispatch(fetchItems());
   }
 
-  handleDeleteItem = item => {
-    if (confirm('Do you want to delete this item')) { // eslint-disable-line
-      // this.props.dispatch(deleteItemRequest(item));
-      console.log(item);
-    }
+  addItemToCart = itemId => {
+    this.props.dispatch(addItemToCartRequest('rishika', itemId));
   };
   //
   // handleAddPost = (name, title, content) => {
@@ -37,9 +36,10 @@ class ItemListPage extends Component {
   {/*     <PostCreateWidget addPost={this.handleAddPost} showAddPost={this.props.showAddPost} /> */}
 
         <ItemList
-          handleDeleteItem={this.handleDeleteItem}
+          addItemToCart={this.addItemToCart}
           items={this.props.items}
         />
+        <a href="#" onClick={getCart}><span>Log state</span></a>
       </div>
     );
   }

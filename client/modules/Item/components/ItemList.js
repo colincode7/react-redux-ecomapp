@@ -11,7 +11,7 @@ function ItemList(props) {
         props.items.map(item => (
           <Item
             item={item}
-            id={item.id}
+            addItemToCart={() => props.addItemToCart(item.id)}
           />
         ))
       }
@@ -27,7 +27,7 @@ ItemList.propTypes = {
     img: PropTypes.string,
     description: PropTypes.string,
   })),
-  handleDeleteItem: PropTypes.func,
+  addItemToCart: PropTypes.func,
 };
 
 export default ItemList;

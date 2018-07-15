@@ -14,6 +14,8 @@ import Footer from './components/Footer/Footer';
 import { toggleAddPost } from './AppActions';
 import { switchLanguage } from '../../modules/Intl/IntlActions';
 
+//import { getCart } from '../../../Cart/CartReducer';
+
 let DevTools;
 if (process.env.NODE_ENV === 'development') {
   // eslint-disable-next-line global-require
@@ -58,6 +60,7 @@ export class App extends Component {
             switchLanguage={lang => this.props.dispatch(switchLanguage(lang))}
             intl={this.props.intl}
             toggleAddPost={this.toggleAddPostSection}
+            cart={this.props.cart}
           />
           <div className={styles.container}>
             {this.props.children}
@@ -79,6 +82,7 @@ App.propTypes = {
 function mapStateToProps(store) {
   return {
     intl: store.intl,
+    cart: store.cart,
   };
 }
 

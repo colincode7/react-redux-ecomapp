@@ -17,7 +17,7 @@ function Item(props) {
       <p className={styles['author-name']}><span>Price: </span> ${props.item.price}.00</p>
       <p className={styles['post-desc']}>{props.item.img}</p>
       <p className={styles['post-desc']}>{props.item.description}</p>
-      <p className={styles['post-action']}><a href="#" onClick={props.onDelete}><span>Add Item</span></a></p>
+      <p className={styles['post-action']}><a href="#" onClick={props.addItemToCart}><span>Add to cart</span></a></p>
       <hr className={styles.divider} />
     </div>
   );
@@ -31,7 +31,7 @@ Item.propTypes = {
     img: PropTypes.string,
     description: PropTypes.string,
   }),
-  onDelete: PropTypes.func,
+  addItemToCart: PropTypes.func,
 };
 
 export default Item;

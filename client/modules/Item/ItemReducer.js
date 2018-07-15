@@ -1,7 +1,8 @@
 import { ADD_ITEM, ADD_ITEMS, DELETE_ITEM } from './ItemActions';
 
 // Initial State
-const initialState = { data: [] };
+const initialState = {
+  data: [] };
 
 const ItemReducer = (state = initialState, action) => {
   switch (action.type) {
