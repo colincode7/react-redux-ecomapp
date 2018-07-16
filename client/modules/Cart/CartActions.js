@@ -30,9 +30,22 @@ export function refreshCart(cart) {
   };
 }
 
-export function fetchCart(cusId) {
+export function fetchCartRequest(cusId) {
   return (dispatch) => {
-    return callApi('cart/${cusId}').then(res => {
+    return callApi(`cart/${cusId}`).then(res => {
+      dispatch(refreshCart(res.cart));
+    });
+  };
+}
+
+export function deleteItemFromCartRequest(cusId, itemId){
+  return (dispatch) => {
+    return callApi('deletefromcart', 'post',{
+      cart: {
+        cusId: cusId,
+        itemId: itemId,
+      }
+      }).then(res => {
       dispatch(refreshCart(res.cart));
     });
   };

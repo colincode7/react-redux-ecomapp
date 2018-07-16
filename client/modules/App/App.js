@@ -60,7 +60,6 @@ export class App extends Component {
             switchLanguage={lang => this.props.dispatch(switchLanguage(lang))}
             intl={this.props.intl}
             toggleAddPost={this.toggleAddPostSection}
-            cart={this.props.cart}
           />
           <div className={styles.container}>
             {this.props.children}
@@ -82,7 +81,6 @@ App.propTypes = {
 function mapStateToProps(store) {
   return {
     intl: store.intl,
-    cart: store.cart,
   };
 }
 

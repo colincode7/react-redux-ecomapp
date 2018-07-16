@@ -18,9 +18,7 @@ export function Header(props, context) {
           <Link><span>Shopping Made Easy!</span></Link>
         </h1>
         {
-          context.router.isActive('/', true)
-            ? <a className={styles['add-post-button']} href="#" onClick={props.toggleAddPost}><span>View Cart</span></a>
-            : null
+          <Link className={styles['add-post-button']} to={'/cart'}> View Cart </Link>
         }
       </div>
     </div>
@@ -35,7 +33,6 @@ Header.propTypes = {
   toggleAddPost: PropTypes.func.isRequired,
   switchLanguage: PropTypes.func.isRequired,
   intl: PropTypes.object.isRequired,
-  cart: PropTypes.object.isRequired,
 };
 
 export default Header;

@@ -39,7 +39,6 @@ class ItemListPage extends Component {
           addItemToCart={this.addItemToCart}
           items={this.props.items}
         />
-        <a href="#" onClick={getCart}><span>Log state</span></a>
       </div>
     );
   }

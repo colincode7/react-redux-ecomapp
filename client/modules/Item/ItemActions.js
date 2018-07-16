@@ -7,10 +7,10 @@ export const DELETE_ITEM = 'DELETE_ITEM';
 
 // Export Actions
 export function addItem(item) {
-  // return {
-  //   type: ADD_ITEM_TO_CART,
-  //   cart,
-  // };
+  return {
+    type: ADD_ITEM,
+    item,
+  };
 }
 
 export function addItemToCartRequest(cusId, itemId) {

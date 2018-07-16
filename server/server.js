@@ -71,6 +71,28 @@ app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(path.resolve(__dirname, '../dist/client')));
 app.use('/api', items);
+// Serve Images from public directory.
+app.get('/images/:name', function (req, res, next) {
+
+ var options = {
+   root: __dirname + '/public/',
+   dotfiles: 'deny',
+   headers: {
+       'x-timestamp': Date.now(),
+       'x-sent': true
+   }
+ };
+
+ var fileName = req.params.name;
+ res.sendFile(fileName, options, function (err) {
+   if (err) {
+     next(err);
+   } else {
+     console.log('Sent:', fileName);
+   }
+ });
+
+});
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
@@ -160,5 +182,8 @@ app.listen(serverConfig.port, (error) => {
     console.log(`MERN is running on port: ${serverConfig.port}! Build something amazing!`); // eslint-disable-line
   }
 });
+
+
+
 
 export default app;

@@ -18,6 +18,8 @@ if (process.env.NODE_ENV !== 'production') {
   // Require async routes only in development for react-hot-reloader to work.
   require('./modules/Item/pages/ItemListPage/ItemListPage');
   require('./modules/Item/pages/ItemDetailPage/ItemDetailPage');
+  require('./modules/Cart/pages/CartDisplayPage/CartDisplayPage');
+  require('./modules/Order/pages/PlaceOrderPage/PlaceOrderPage');
 }
 
 // react-router setup with code-splitting
@@ -39,5 +41,21 @@ export default (
         });
       }}
     />
-  </Route>
+  <Route
+    path="/cart"
+    getComponent={(nextState, cb) => {
+      require.ensure([], require => {
+        cb(null, require('./modules/Cart/pages/CartDisplayPage/CartDisplayPage').default);
+      });
+    }}
+  />
+  <Route
+    path="/placeorder"
+    getComponent={(nextState, cb) => {
+      require.ensure([], require => {
+        cb(null, require('./modules/Order/pages/PlaceOrderPage/PlaceOrderPage').default);
+      });
+    }}
+  />
+</Route>
 );

@@ -1,4 +1,4 @@
-import { REFRESH_CART, ADD_ITEM_TO_CART} from './CartActions';
+import { REFRESH_CART, ADD_ITEM_TO_CART} from './OrderActions';
 
 // Initial State
 const initialState = { data: {cusId: "rishika", itemIds: []} };

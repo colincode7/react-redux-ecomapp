@@ -28,11 +28,11 @@ const ItemReducer = (state = initialState, action) => {
 
 /* Selectors */
 
-// Get all posts
+// Get all items
 export const getItems = state => state.items.data;
 
-// Get post by cuid
-export const getItem = (state, id) => state.items.data.filter(item => item.id === id)[0];
+// Get item by id
+export const getItem = (state, id) => (state.items.data.filter(item => item.id == id)[0]);
 
 // Export Reducer
 export default ItemReducer;
