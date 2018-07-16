@@ -12,6 +12,7 @@ function ItemList(props) {
           <Item
             item={item}
             addItemToCart={() => props.addItemToCart(item.id)}
+            key={item._id}
           />
         ))
       }

@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
   cusId: { type: 'String', required: true },
+  name: { type: 'String', required: true },
   address: { type: 'String', required: true },
   payOption: { type: 'String', required: true },
   itemsList: { type: [Number], required: true},

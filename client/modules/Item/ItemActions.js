@@ -13,17 +13,6 @@ export function addItem(item) {
   };
 }
 
-export function addItemToCartRequest(cusId, itemId) {
-  // return (dispatch) => {
-  //   return callApi('addtocart', 'post', {
-  //     item: {
-  //       cusId: cusId,
-  //       price: itemId,
-  //     },
-  //   }).then(res => dispatch(addItem(res.item)));
-  // };
-}
-
 export function addItems(items) {
   return {
     type: ADD_ITEMS,

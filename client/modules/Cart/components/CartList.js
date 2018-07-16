@@ -28,10 +28,11 @@ function CartList(props) {
             <Item
               item={item}
               deleteItemFromCart={() => props.deleteItemFromCart(item.id)}
+              key={item._id}
             />
           ))
         }
-        <Link className={styles['back-button']} to={'/'}>Checkout</Link>
+        <Link className={styles['back-button']} to={'/placeorder'}>Checkout</Link>
 
       </div>
     </div>
