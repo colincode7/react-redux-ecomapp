@@ -30,7 +30,7 @@ export class PlaceOrderPage extends Component {
       this.props.createOrder(
         nameRef.value, address, paymentRef.value);
       nameRef.value = addOneRef.value = addTwoRef.value = cityRef.value = stateRef.value = zipRef.value = '';
-      browserHistory.push('/')
+      browserHistory.push('/ordersuccessful');
     }
   };
 

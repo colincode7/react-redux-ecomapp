@@ -57,5 +57,13 @@ export default (
       });
     }}
   />
+  <Route
+    path="/ordersuccessful"
+    getComponent={(nextState, cb) => {
+      require.ensure([], require => {
+        cb(null, require('./modules/Order/pages/SuccessPage/SuccessPage').default);
+      });
+    }}
+  />
 </Route>
 );

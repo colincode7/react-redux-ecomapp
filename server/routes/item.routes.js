@@ -25,7 +25,8 @@ router.route('/deletefromcart').post(CartController.deleteItemFromCart);
 // Get cart by cusId.
 router.route('/cart/:cusId').get(CartController.getCart);
 
-//create a new order
+// Create a new order.
 router.route('/createorder').post(OrderController.createOrder);
+
 
 export default router;
