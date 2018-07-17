@@ -182,11 +182,8 @@ app.use((req, res, next) => {
 // start app
 app.listen(serverConfig.port, (error) => {
   if (!error) {
-    console.log(`SHOPIFY is running on port: ${serverConfig.port}! Build something amazing!`); // eslint-disable-line
+    console.log(`SHOPIFY is running on port: ${serverConfig.port}!`); // eslint-disable-line
   }
 });
-
-
-
 
 export default app;
