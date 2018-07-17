@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 
 // Import Components
 import ItemList from '../../components/ItemList';
@@ -12,29 +13,27 @@ import { addItemToCartRequest } from '../../../Cart/CartActions';
 // import { toggleAddPost } from '../../../App/AppActions';
 
 // Import Selectors
-// import { getShowAddPost } from '../../../App/AppReducer';
 import { getItems } from '../../ItemReducer';
 import { getCart } from '../../../Cart/CartReducer';
 
 class ItemListPage extends Component {
   componentDidMount() {
+    let token = localStorage.getItem('jwtToken');
+    console.log('token:' + token);
+    if(!token || !this.props.cusId) {
+      browserHistory.push('/login');
+    }
     this.props.dispatch(fetchItems());
   }
 
   addItemToCart = itemId => {
-    this.props.dispatch(addItemToCartRequest('rishika', itemId));
+    this.props.dispatch(addItemToCartRequest(this.props.cusId, itemId));
   };
-  //
-  // handleAddPost = (name, title, content) => {
-  //   this.props.dispatch(toggleAddPost());
-  //   this.props.dispatch(addPostRequest({ name, title, content }));
-  // };
+
 
   render() {
     return (
       <div>
-  {/*     <PostCreateWidget addPost={this.handleAddPost} showAddPost={this.props.showAddPost} /> */}
-
         <ItemList
           addItemToCart={this.addItemToCart}
           items={this.props.items}
@@ -52,6 +51,7 @@ function mapStateToProps(state) {
   return {
     // showAddPost: getShowAddPost(state),
     items: getItems(state),
+    cusId: state.auth.cusId,
   };
 }
 
@@ -65,6 +65,7 @@ ItemListPage.propTypes = {
   })),
 // showAddPost: PropTypes.bool,
   dispatch: PropTypes.func,
+  cusId: PropTypes.string,
 };
 
 ItemListPage.contextTypes = {

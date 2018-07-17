@@ -18,33 +18,6 @@ export function getItems(req, res) {
   });
 }
 
-/**
- * Add an item
- * @param req
- * @param res
- * @returns void
- */
-export function addItem(req, res) {
-  if (!req.body.item.name || !req.body.item.title || !req.body.item.content) {
-    res.status(403).end();
-  }
-
-  const newPost = new Item(req.body.item);
-
-  // Let's sanitize inputs
-  newPost.title = sanitizeHtml(newPost.title);
-  newPost.name = sanitizeHtml(newPost.name);
-  newPost.content = sanitizeHtml(newPost.content);
-
-  newPost.slug = slug(newPost.title.toLowerCase(), { lowercase: true });
-  newPost.cuid = cuid();
-  newPost.save((err, saved) => {
-    if (err) {
-      res.status(500).send(err);
-    }
-    res.json({ item: saved });
-  });
-}
 
 /**
  * Get a single item

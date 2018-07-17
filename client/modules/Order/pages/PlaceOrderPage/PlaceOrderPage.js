@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { browserHistory } from 'react-router'
-// import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
+import { browserHistory } from 'react-router';
 
 // Import Style
 import styles from './PlaceOrderPage.css';
@@ -27,8 +26,9 @@ export class PlaceOrderPage extends Component {
                     stateRef.value + "\n" +
                     zipRef.value;
       console.log(nameRef.value + address + paymentRef.value);
+      console.log(paymentRef.value);
       this.props.createOrder(
-        nameRef.value, address, paymentRef.value);
+        nameRef.value, this.props.cusId, address, paymentRef.value);
       nameRef.value = addOneRef.value = addTwoRef.value = cityRef.value = stateRef.value = zipRef.value = '';
       browserHistory.push('/ordersuccessful');
     }
@@ -44,8 +44,8 @@ export class PlaceOrderPage extends Component {
           <input placeholder="City" className={styles['form-field']} ref="city" />
           <input placeholder="State" className={styles['form-field']} ref="state" />
           <input placeholder="Zip Code" className={styles['form-field']} ref="zip" />
-          <input type = "radio" id="COD" ref="payment" value="COD" checked readOnly />
-          <label>Cash On Delivery</label>
+          <input className={styles['form-radio']} type = "radio" id="COD" ref="payment" value="COD" name="COD" checked readOnly />
+          <label htmlFor="COD" className={styles['form-title']}>Cash On Delivery</label>
           <a className={styles['order-submit-button']} href="#" onClick={this.createOrder}>Place Order</a>
         </div>
     );
@@ -55,12 +55,19 @@ export class PlaceOrderPage extends Component {
 // Retrieve data from store as props
 function mapDispatchToProps(dispatch) {
   return {
-     createOrder: (name, address, payment) => {dispatch(createOrderRequest(name, address, payment))}
+     createOrder: (name, cusId, address, payment) => {dispatch(createOrderRequest(name, cusId, address, payment))}
+  };
+}
+
+function mapStateToProps(state) {
+  return {
+     cusId: state.auth.cusId,
   };
 }
 
 PlaceOrderPage.propTypes =  {
   createOrder: PropTypes.func.isRequired,
+  cusId: PropTypes.string,
 };
 
-export default connect(null, mapDispatchToProps)(PlaceOrderPage);
+export default connect(mapStateToProps, mapDispatchToProps)(PlaceOrderPage);

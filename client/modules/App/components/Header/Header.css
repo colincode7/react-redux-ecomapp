@@ -23,7 +23,7 @@
   color: #FFF;
 }
 
-.add-post-button {
+.view-cart-button {
   display: inline-block;
   color: #FFF;
   background: #03A9F4;
@@ -31,6 +31,22 @@
   text-decoration: none;
   border-radius: 1000px;
   float: right;
+}
+
+.logout-button {
+  display: inline-block;
+  color: #FFF;
+  background: #03A9F4;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 1000px;
+  float: right;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  border-bottom-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  border-top-style: none;
 }
 
 .language-switcher {

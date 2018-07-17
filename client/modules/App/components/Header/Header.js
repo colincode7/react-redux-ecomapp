@@ -6,6 +6,11 @@ import { Link } from 'react-router';
 // Import Style
 import styles from './Header.css';
 
+function logout() {
+  localStorage.removeItem('jwtToken');
+  window.location.reload();
+}
+
 export function Header(props, context) {
   const languageNodes = props.intl.enabledLanguages.map(
     lang => <li key={lang} onClick={() => props.switchLanguage(lang)} className={lang === props.intl.locale ? styles.selected : ''}>{lang}</li>
@@ -17,9 +22,9 @@ export function Header(props, context) {
         <h1 className={styles['site-title']}>
           <Link><span>Shopping Made Easy!</span></Link>
         </h1>
-        {
-          <Link className={styles['add-post-button']} to={'/cart'}> View Cart </Link>
-        }
+        <button className={styles['logout-button']} onClick={logout}> Logout </button>
+        <Link className={styles['view-cart-button']} to={'/cart'}> View Cart </Link>
+
       </div>
     </div>
   );

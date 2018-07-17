@@ -5,6 +5,9 @@ import bodyParser from 'body-parser';
 import path from 'path';
 import IntlWrapper from '../client/modules/Intl/IntlWrapper';
 
+var passport = require('passport');
+require('./config/passport')(passport);
+
 // Initialize the Express App
 const app = new Express();
 
@@ -179,7 +182,7 @@ app.use((req, res, next) => {
 // start app
 app.listen(serverConfig.port, (error) => {
   if (!error) {
-    console.log(`MERN is running on port: ${serverConfig.port}! Build something amazing!`); // eslint-disable-line
+    console.log(`SHOPIFY is running on port: ${serverConfig.port}! Build something amazing!`); // eslint-disable-line
   }
 });
 

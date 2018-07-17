@@ -4,12 +4,12 @@ import callApi from '../../util/apiCaller';
 export const ORDER_SUCCESS = 'ORDER_SUCCESS';
 
 // Export Actions
-export function createOrderRequest(name, address, payOption) {
+export function createOrderRequest(name, cusId, address, payOption) {
   console.log("my" + name + address + payOption);
   return (dispatch) => {
     return callApi('createorder', 'post', {
       order: {
-        cusId: 'rishika',
+        cusId: cusId,
         name: name,
         payOption: payOption,
         address: address,

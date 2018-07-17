@@ -7,7 +7,7 @@ import Cart from '../models/cart';
  * @returns void
  */
 
- // Todo(rishika): combine findOne and findOneAndUpdate into one.
+ // Todo: combine findOne and findOneAndUpdate into one.
 export function addItemtoCart(req, res) {
   // Validate request.
   if (!req.body.cart.cusId || !req.body.cart.itemId ) {

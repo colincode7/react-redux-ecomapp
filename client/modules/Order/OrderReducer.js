@@ -2,7 +2,7 @@ import { ORDER_SUCCESS } from './OrderActions';
 
 // Initial State
 const initialState = {
-  successOrderId: [] };
+  successOrderId: '' };
 
 const OrderReducer = (state = initialState, action) => {
   switch (action.type) {

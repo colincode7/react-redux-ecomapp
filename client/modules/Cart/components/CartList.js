@@ -17,26 +17,30 @@ function CartList(props) {
         <div>Your cart is empty!</div>
       </div>
     );
-  }
-  return (
-    <div>
-      <Link className={styles['back-button']} to={'/'}>Back</Link>
-      <br/><br/>
-      <div className="listView">
-        {
-          props.items.map(item => (
-            <Item
-              item={item}
-              deleteItemFromCart={() => props.deleteItemFromCart(item.id)}
-              key={item._id}
-            />
-          ))
-        }
-        <Link className={styles['back-button']} to={'/placeorder'}>Checkout</Link>
+  } else {
+    let totalPrice = props.items.reduce((total, item) => total + item.price, 0);
+    return (
+      <div>
+        <Link className={styles['back-button']} to={'/'}>Back</Link>
+        <br/><br/>
+        <h3>Total Price: ${totalPrice}</h3>
+        <div className="listView">
+          {
+            props.items.map(item => (
+              <Item
+                item={item}
+                deleteItemFromCart={() => props.deleteItemFromCart(item.id)}
+                key={item._id}
+              />
+            ))
+          }
+          <Link className={styles['back-button']} to={'/placeorder'}>Checkout</Link>
 
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+
 }
 
 CartList.propTypes = {

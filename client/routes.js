@@ -50,6 +50,22 @@ export default (
     }}
   />
   <Route
+    path="/login"
+    getComponent={(nextState, cb) => {
+      require.ensure([], require => {
+        cb(null, require('./modules/Auth/pages/LoginPage/LoginPage').default);
+      });
+    }}
+  />
+  <Route
+    path="/register"
+    getComponent={(nextState, cb) => {
+      require.ensure([], require => {
+        cb(null, require('./modules/Auth/pages/RegisterPage/RegisterPage').default);
+      });
+    }}
+  />
+  <Route
     path="/placeorder"
     getComponent={(nextState, cb) => {
       require.ensure([], require => {

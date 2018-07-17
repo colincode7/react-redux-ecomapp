@@ -1,7 +1,7 @@
 import { REFRESH_CART, ADD_ITEM_TO_CART} from './CartActions';
 
 // Initial State
-const initialState = { data: {cusId: "rishika", itemIds: []} };
+const initialState = { data: {cusId: null, itemIds: []} };
 
 const CartReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -11,22 +11,15 @@ const CartReducer = (state = initialState, action) => {
     case REFRESH_CART:
       return  { ...state, data: action.cart };
 
+    case 'SET_CUSID':
+      return { ...state, data: {...state.data, cusId: action.cusId}};
+
     default:
       return state;
   }
 };
 
 /* Selectors */
-
-// // Get all posts
-// export const getCart = state => {
-//   console.log(state);
-//   return state.items.cart;
-// }
-//
-// // Get post by cuid
-// export const getItem = (state, id) => state.items.data.filter(item => item.id === id)[0];
-
 
 // Get cart items from state.
 export const getCartItems = state => {

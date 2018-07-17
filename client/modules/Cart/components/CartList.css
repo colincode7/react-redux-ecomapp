@@ -7,3 +7,10 @@
   border-radius: 1000px;
   float: left;
 }
+
+.item-title{
+  font-size: 28px;
+  margin-bottom: 16px;
+  font-weight: 400;
+  color: #616161;
+}
