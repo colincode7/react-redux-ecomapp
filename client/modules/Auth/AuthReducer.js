@@ -1,21 +1,31 @@
 import { LOGIN_SUCCESS, LOGIN_FAIL } from './AuthActions';
-import { REGISTER_SUCCESS } from './AuthActions';
+import { REGISTER_SUCCESS, REGISTER_FAIL } from './AuthActions';
 
 // Initial State
 const initialState = {
-  cusId: '' };
+  cusId: '', loginMessage: '', regMessage: ''};
 
 const AuthReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_SUCCESS :
       return {
         cusId: action.username,
-        message: action.message,
+        loginMessage: action.message,
     };
     case LOGIN_FAIL:
       return {
         cusId: '',
-        message: action.message,
+        loginMessage: action.message,
+    };
+    case REGISTER_SUCCESS:
+      return {
+        cusId: action.username,
+        regMessage: action.message,
+    };
+    case REGISTER_FAIL:
+      return {
+        cusId: '',
+        regMessage: action.message,
     };
 
     default:

@@ -55,7 +55,7 @@ class LoginPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    message: state.auth.message
+    message: state.auth.loginMessage
   };
 }
 

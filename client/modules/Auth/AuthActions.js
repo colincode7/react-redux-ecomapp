@@ -5,6 +5,7 @@ import { browserHistory } from 'react-router';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL= 'LOGIN_FAIL';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
+export const REGISTER_FAIL = 'REGISTER_FAIL';
 
 // Export Actions
 export function loginRequest(username, password) {
@@ -14,12 +15,12 @@ export function loginRequest(username, password) {
       password
     }).then(res => {
       if(res.success == true){
-        console.log('Login succesful' + res);
+        console.log('Login succesful!' + res);
         dispatch(loginSuccessful(username, ''));
         dispatch(setCusId(username));
         localStorage.setItem('jwtToken', res.token);
       } else {
-        dispatch(loginFailed('Login Failed'));
+        dispatch(loginFailed('Login Failed!'));
       }
       browserHistory.push('/');
     });
@@ -35,9 +36,10 @@ export function registerRequest(username, password) {
     }).then(res => {
       if(res.success == true){
         console.log('Register succesful' + res.newuser);
+        dispatch(registerSuccessful(''));
         browserHistory.push('/login');
       } else {
-        dispatch(loginFailed('Registration Failed. Try Again!'));
+        dispatch(registerFailed('Registration Failed. Try Again!'));
       }
     });
   };
@@ -58,10 +60,18 @@ export function loginFailed(message) {
   };
 }
 
-export function registerSuccessful(username) {
+export function registerSuccessful(username, message) {
   return {
     type: REGISTER_SUCCESS,
     username,
+    message,
+  };
+}
+
+export function registerFailed(message) {
+  return {
+    type: REGISTER_FAIL,
+    message,
   };
 }
 

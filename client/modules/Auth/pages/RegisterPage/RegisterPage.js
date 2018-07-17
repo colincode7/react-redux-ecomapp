@@ -34,16 +34,30 @@ class RegisterPage extends Component {
     return (
       <div className="container">
         <form className="form-signin" onSubmit={this.onSubmit}>
+          {this.props.message !== '' &&
+            <div className="alert alert-warning alert-dismissible" role="alert">
+              { this.props.message }
+            </div>
+          }
           <h2 className="form-signin-heading">Register</h2>
           <label htmlFor="sername" className="sr-only">Username</label>
           <input className="form-control" placeholder="Username" name="username" value={username} onChange={this.onChange} required/>
           <label htmlFor="inputPassword" className="sr-only">Password</label>
           <input type="password" className="form-control" placeholder="Password" name="password" value={password} onChange={this.onChange} required/>
           <button className="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+          <p>
+            Already Registered? <Link to="/login"><span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Go to Login!</Link>
+          </p>
         </form>
       </div>
     );
   }
+}
+
+function mapStateToProps(state) {
+  return {
+    message: state.auth.regMessage
+  };
 }
 
 function mapDispatchToProps(dispatch) {
@@ -56,4 +70,4 @@ RegisterPage.propTypes = {
     register: PropTypes.func.isRequired,
 };
 
-export default connect(null, mapDispatchToProps)(RegisterPage);
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterPage);
