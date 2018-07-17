@@ -14,3 +14,4 @@
   npm install
   npm run bs
 ```
+### Server starts at "localhost:8000"
