@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
-// import { FormattedMessage } from 'react-intl';
 
 // Import Style
 import styles from './Item.css';
