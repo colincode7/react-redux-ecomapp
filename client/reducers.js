@@ -9,7 +9,6 @@ import cart from './modules/Cart/CartReducer';
 import items from './modules/Item/ItemReducer';
 import order from './modules/Order/OrderReducer';
 import auth from './modules/Auth/AuthReducer';
-import intl from './modules/Intl/IntlReducer';
 
 // Combine all reducers into one root reducer
 export default combineReducers({
@@ -18,5 +17,4 @@ export default combineReducers({
   items,
   order,
   auth,
-  intl,
 });
