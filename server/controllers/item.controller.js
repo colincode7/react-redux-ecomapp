@@ -1,7 +1,5 @@
 import Item from '../models/item';
-import cuid from 'cuid';
-import slug from 'limax';
-import sanitizeHtml from 'sanitize-html';
+
 
 /**
  * Get all posts
