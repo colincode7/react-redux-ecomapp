@@ -22,6 +22,7 @@ function CartList(props) {
     return (
       <div>
         <Link className={styles['back-button']} to={'/'}>Back</Link>
+        <Link className={styles['back-button']} to={'/placeorder'}>Checkout</Link>
         <br/><br/>
         <h3>Total Price: ${totalPrice}</h3>
         <div className="listView">
@@ -34,8 +35,6 @@ function CartList(props) {
               />
             ))
           }
-          <Link className={styles['back-button']} to={'/placeorder'}>Checkout</Link>
-
         </div>
       </div>
     );
