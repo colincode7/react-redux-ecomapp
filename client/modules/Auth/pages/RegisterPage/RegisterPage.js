@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import './RegisterPage.css';
+import styles from './RegisterPage.css';
 import { registerRequest } from '../../AuthActions.js';
 
 class RegisterPage extends Component {
@@ -32,19 +32,19 @@ class RegisterPage extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <div className="container">
+      <div className={styles['form-content']}>
         <form className="form-signin" onSubmit={this.onSubmit}>
           {this.props.message !== '' &&
             <div className="alert alert-warning alert-dismissible" role="alert">
               { this.props.message }
             </div>
           }
-          <h2 className="form-signin-heading">Register</h2>
+          <h2 className={styles['form-title']}>Register</h2>
           <label htmlFor="sername" className="sr-only">Username</label>
-          <input className="form-control" placeholder="Username" name="username" value={username} onChange={this.onChange} required/>
+          <input className={styles['form-field']} placeholder="Username" name="username" value={username} onChange={this.onChange} required/>
           <label htmlFor="inputPassword" className="sr-only">Password</label>
-          <input type="password" className="form-control" placeholder="Password" name="password" value={password} onChange={this.onChange} required/>
-          <button className="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+          <input type="password" className={styles['form-field']} placeholder="Password" name="password" value={password} onChange={this.onChange} required/>
+          <button className={styles['register-button']} type="submit">Register</button>
           <p>
             Already Registered? <Link to="/login"><span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Go to Login!</Link>
           </p>
