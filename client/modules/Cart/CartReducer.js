@@ -26,9 +26,10 @@ export const getCartItems = state => {
   if(!state.cart.data){
     return [];
   }
-  let cartItems = state.cart.data.itemIds;
+  let cartItemIds = state.cart.data.itemIds;
 
-  return state.items.data.filter(item => cartItems.indexOf(item.id) != -1);
+  // Get Full items for Cart item ids from state.items.data.
+  return state.items.data.filter(item => cartItemIds.indexOf(item.id) != -1);
 }
 
 
