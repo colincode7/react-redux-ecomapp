@@ -1,4 +1,4 @@
-import { ADD_ITEMS, DELETE_ITEM } from './ItemActions';
+import { ADD_ITEMS } from './ItemActions';
 
 // Initial State
 const initialState = {
@@ -9,11 +9,6 @@ const ItemReducer = (state = initialState, action) => {
     case ADD_ITEMS :
       return {
         data: action.items,
-      };
-
-    case DELETE_ITEM :
-      return {
-        data: state.data.filter(item => item.id !== action.id),
       };
 
     default:
